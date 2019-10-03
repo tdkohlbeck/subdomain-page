@@ -1,23 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
+import config from './config.js'
 
 function App() {
+  const [state, setState] = useState(config)
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor: state.bg_color}}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={config.logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {state.copy}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {state.link_components}
       </header>
     </div>
   );
